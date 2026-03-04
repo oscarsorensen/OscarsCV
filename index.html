@@ -3,11 +3,15 @@
 <head>
     <meta charset="utf-8">
     <title>Curriculum · Oscar Sørensen</title>
-
-    
     <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@300;400;500&display=swap" rel="stylesheet">
 
     <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
         html {
             background: #111;
             font-family: "Fira Code", monospace;
@@ -17,229 +21,429 @@
 
         body {
             background: #1E1E1E;
-            width: 900px;
+            width: 960px;
             margin: 40px auto;
             display: flex;
-            border-radius: 6px;
+            border-radius: 8px;
             overflow: auto;
-            box-shadow: 0 0 25px rgba(0,0,0,0.8);
+            box-shadow: 0 0 40px rgba(0,0,0,0.9);
         }
 
-        /* LEFT PANEL */
+        /* ── LEFT PANEL ── */
         #left {
-            width: 32%;
+            width: 30%;
             background: #252526;
-            padding: 25px;
-            border-right: 1px solid #333;
+            padding: 30px 24px;
+            border-right: 1px solid #2D2D2D;
+            display: flex;
+            flex-direction: column;
+            gap: 24px;
         }
 
         #left img {
-            width: 140px;
+            width: 120px;
             border-radius: 6px;
             display: block;
-            margin: 0 auto 20px auto;
-            border: 1px solid #444;
+            margin: 0 auto;
+            border: 1px solid #3C3C3C;
+            filter: grayscale(20%);
         }
 
-        #left h3 {
-            font-size: 15px;
-            margin-bottom: 8px;
+        .left-section h3 {
+            font-size: 11px;
             font-weight: 500;
-            color: #569CD6; /* VS Code blue */
-            border-bottom: 1px solid #333;
-            padding-bottom: 3px;
+            color: #569CD6;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            border-bottom: 1px solid #2D2D2D;
+            padding-bottom: 5px;
+            margin-bottom: 10px;
         }
 
-        #left ul {
+        .left-section ul {
             list-style: none;
-            padding-left: 0;
-            margin: 0 0 22px 0;
         }
 
-        #left ul li {
-            margin-bottom: 6px;
+        .left-section ul li {
+            margin-bottom: 7px;
+            color: #BBB;
+            font-size: 12.5px;
+            line-height: 1.5;
+        }
+
+        .skill-group {
+            margin-bottom: 8px;
+        }
+
+        .skill-group-label {
+            font-size: 11px;
+            color: #666;
+            margin-bottom: 3px;
+        }
+
+        .skill-group-items {
             color: #CCC;
+            font-size: 12.5px;
         }
 
-        /* RIGHT PANEL */
+        .lang-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 7px;
+        }
+
+        .lang-name {
+            color: #CCC;
+            font-size: 12.5px;
+        }
+
+        .lang-level {
+            font-size: 11px;
+            color: #569CD6;
+            background: rgba(86, 156, 214, 0.1);
+            padding: 1px 6px;
+            border-radius: 3px;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 8px;
+            margin-bottom: 8px;
+            font-size: 12.5px;
+            color: #BBB;
+        }
+
+        .contact-item a {
+            color: #4EC9B0;
+            text-decoration: none;
+        }
+
+        .contact-item a:hover {
+            text-decoration: underline;
+        }
+
+        /* ── RIGHT PANEL ── */
         #right {
-            width: 68%;
-            padding: 35px;
+            width: 70%;
+            padding: 36px 38px;
+            display: flex;
+            flex-direction: column;
+            gap: 28px;
         }
 
-        #right h1 {
-            font-size: 30px;
+        .name-block h1 {
+            font-size: 28px;
             font-weight: 500;
-            margin-bottom: 6px;
-            color: #DCDCAA; 
+            color: #DCDCAA;
+            margin-bottom: 4px;
         }
 
-        #right h2 {
-            color: #C586C0; 
-            font-size: 18px;
+        .name-block h2 {
+            color: #C586C0;
+            font-size: 15px;
             font-weight: 400;
+        }
+
+        .right-section h3 {
+            font-size: 11px;
+            font-weight: 500;
+            color: #569CD6;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            border-bottom: 1px solid #2D2D2D;
+            padding-bottom: 5px;
+            margin-bottom: 14px;
+        }
+
+        .right-section p {
+            color: #BBB;
+            line-height: 1.7;
+            font-size: 13px;
+        }
+
+        /* entries */
+        .entry {
             margin-bottom: 20px;
         }
 
-        #right section {
-            margin-bottom: 35px;
+        .entry:last-child {
+            margin-bottom: 0;
         }
 
-        #right h3 {
-            color: #569CD6;
-            font-size: 16px;
-            margin-bottom: 10px;
-            border-bottom: 1px solid #333;
-            padding-bottom: 4px;
+        .entry-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            margin-bottom: 3px;
         }
 
-        .job {
-            margin-bottom: 23px;
-        }
-
-        .job-title {
+        .entry-title {
             color: #DCDCAA;
+            font-size: 13.5px;
             font-weight: 400;
         }
 
-        .job-date {
-            font-size: 12px;
-            color: #888;
-            margin-bottom: 6px;
+        .entry-date {
+            font-size: 11px;
+            color: #666;
+            white-space: nowrap;
+            margin-left: 12px;
         }
 
-        .job ul {
+        .entry-sub {
+            font-size: 11.5px;
+            color: #888;
+            margin-bottom: 7px;
+        }
+
+        .entry ul {
             list-style: none;
             padding-left: 0;
         }
 
-        .job li {
-            margin-bottom: 6px;
+        .entry ul li {
+            margin-bottom: 5px;
+            color: #BBB;
+            font-size: 12.5px;
+            line-height: 1.6;
+            padding-left: 14px;
+            position: relative;
+        }
+
+        .entry ul li::before {
+            content: "›";
+            position: absolute;
+            left: 0;
+            color: #444;
+        }
+
+        .stack-line {
+            font-size: 11.5px;
+            color: #569CD6;
+            margin-top: 6px;
+            padding-left: 14px;
+        }
+
+        .interests-line {
+            color: #BBB;
+            font-size: 12.5px;
+            line-height: 1.8;
+        }
+
+        /* current badge */
+        .badge-current {
+            font-size: 10px;
+            color: #4EC9B0;
+            background: rgba(78, 201, 176, 0.1);
+            border: 1px solid rgba(78, 201, 176, 0.2);
+            padding: 1px 7px;
+            border-radius: 3px;
+            margin-left: 8px;
+            vertical-align: middle;
         }
     </style>
-
 </head>
-
 
 <body>
 
     <!-- LEFT -->
-    <section id="left">
+    <aside id="left">
 
-        <img src="oscarbillede.png">
+        <img src="oscarbillede.png" alt="Oscar Sørensen">
 
-        <h3>Education</h3>
-        <ul>
-            <li>CEAC — Higher Technician in Web App Development</li>
-            <li>Midtsjællands Gymnasium — Upper Secondary</li>
-            <li>Haslev Midtskolen — Primary & Secondary School</li>
-        </ul>
+        <div class="left-section">
+            <h3>Education</h3>
+            <ul>
+                <li>CEAC — Higher Technician in Web App Development</li>
+                <li>Midtsjællands Gymnasium — Upper Secondary</li>
+                <li>Haslev Midtskolen — Primary & Secondary</li>
+            </ul>
+        </div>
 
-        <h3>Skills</h3>
-        <ul>
-            <li>Digital marketing</li>
-            <li>Negotiation</li>
-            <li>Communication</li>
-            <li>Critical thinking</li>
-            <li>Team leadership</li>
-        </ul>
+        <div class="left-section">
+            <h3>Technical Skills</h3>
 
-        <h3>Additional</h3>
-        <ul>
-            <li>Driving licence B + vehicle</li>
-            <li>On-site & hybrid availability</li>
-            <li>Experience with AI tools</li>
-        </ul>
+            <div class="skill-group">
+                <div class="skill-group-label">Languages</div>
+                <div class="skill-group-items">PHP · Python · JavaScript</div>
+            </div>
+            <div class="skill-group">
+                <div class="skill-group-label">Database</div>
+                <div class="skill-group-items">MySQL · SQL</div>
+            </div>
+            <div class="skill-group">
+                <div class="skill-group-label">Frontend</div>
+                <div class="skill-group-items">HTML5 · CSS3</div>
+            </div>
+            <div class="skill-group">
+                <div class="skill-group-label">AI & Data</div>
+                <div class="skill-group-items">OpenAI API · Ollama · ChromaDB · RAG</div>
+            </div>
+            <div class="skill-group">
+                <div class="skill-group-label">Tools</div>
+                <div class="skill-group-items">Git · Linux · Flask · PDO</div>
+            </div>
+            <div class="skill-group">
+                <div class="skill-group-label">Learning</div>
+                <div class="skill-group-items">Symfony · Vue 3 · TypeScript · Docker</div>
+            </div>
+        </div>
 
-        <h3>Languages</h3>
-        <ul>
-            <li>Danish — Native</li>
-            <li>English — C2</li>
-            <li>Spanish — B2</li>
-            <li>Norwegian — B1</li>
-        </ul>
+        <div class="left-section">
+            <h3>Languages</h3>
+            <div class="lang-item">
+                <span class="lang-name">Danish</span>
+                <span class="lang-level">Native</span>
+            </div>
+            <div class="lang-item">
+                <span class="lang-name">English</span>
+                <span class="lang-level">C2</span>
+            </div>
+            <div class="lang-item">
+                <span class="lang-name">Spanish</span>
+                <span class="lang-level">B2</span>
+            </div>
+            <div class="lang-item">
+                <span class="lang-name">Norwegian</span>
+                <span class="lang-level">B1</span>
+            </div>
+        </div>
 
-        <h3>Contact</h3>
-        <ul>
-            <li>+34 698 xxx xxx</li>
-            <li>oscar081100@gmail.com</li>
-            <li>Valencia, Spain</li>
-        </ul>
+        <div class="left-section">
+            <h3>Additional</h3>
+            <ul>
+                <li>Driving licence B + vehicle</li>
+                <li>On-site & hybrid availability</li>
+                <li>Digital marketing</li>
+                <li>Negotiation & communication</li>
+            </ul>
+        </div>
 
-    </section>
+        <div class="left-section">
+            <h3>Contact</h3>
+            <div class="contact-item">oscar081100@gmail.com</div>
+            <div class="contact-item">+34 698 xxx xxx</div>
+            <div class="contact-item">Valencia, Spain</div>
+            <div class="contact-item">
+                <a href="https://oscarsorensen.github.io/Portafolio/" target="_blank">Portfolio →</a>
+            </div>
+            <div class="contact-item">
+                <a href="https://github.com/oscarsorensen" target="_blank">GitHub →</a>
+            </div>
+        </div>
+
+    </aside>
 
 
     <!-- RIGHT -->
-    <section id="right">
+    <main id="right">
 
-        <h1>Oscar Sørensen</h1>
-        <h2>Upcoming Fullstack Developer</h2>
+        <div class="name-block">
+            <h1>Oscar Sørensen</h1>
+            <h2>Full Stack Developer — DAW</h2>
+        </div>
 
-        <section>
+        <div class="right-section">
             <h3>Profile</h3>
             <p>
-                Enthusiastic and fast-learning candidate with strong analytical and organizational skills.
-                Experience in digital documentation, file management, website maintenance, and general IT operations.
-                Motivated to expand technical competencies through training and hands-on projects.
-                Committed to a long-term IT career based on reliability, adaptability, and continuous learning.
+                First-year DAW student on practicas at Mandaa EUmail, Valencia.
+                I build backend-heavy, database-driven applications — from a B2B SaaS tool
+                for the Spanish real estate market to local AI systems built on Ollama.
+                I came to development from a background in real estate and business operations,
+                which means I think about what a solution actually needs to solve before
+                I start building it.
             </p>
-        </section>
+        </div>
 
-        <section>
-            <h3>Work Experience</h3>
+        <div class="right-section">
+            <h3>Projects</h3>
 
-            <!-- MEDITER -->
-            <div class="job">
-                <div class="job-title">Mediter Real Estate — Administration & Real Estate Agent</div>
-                <div class="job-date">Dec 2021 – Jun 2024</div>
+            <div class="entry">
+                <div class="entry-header">
+                    <span class="entry-title">FirstListing — B2B SaaS, Real Estate</span>
+                    <span class="entry-date">2025 – 2026</span>
+                </div>
                 <ul>
-                    <li>Managed company website and all digital marketing platforms (Instagram, Facebook, real estate portals).</li>
-                    <li>Produced, edited, and managed content for the corporate YouTube channel.</li>
-                    <li>Primary point of contact with construction firms: negotiated prices, projects, and timelines.</li>
-                    <li>Coordinated communication between clients, external agents, and legal professionals.</li>
-                    <li>Accompanied clients to property visits, providing operational support and negotiations.</li>
-                    <li>Handled all real estate processes except contract drafting.</li>
+                    <li>Detects copied property listings and identifies original authorship.</li>
+                    <li>Full pipeline: web crawler → OpenAI structured extraction → SQL duplicate scoring → AI description comparison.</li>
+                    <li>Admin dashboard with real-time log streaming, role-based auth, and subscription model.</li>
+                </ul>
+                <div class="stack-line">PHP · Python · MySQL · OpenAI GPT-4.1-mini</div>
+            </div>
+
+            <div class="entry">
+                <div class="entry-header">
+                    <span class="entry-title">AI-Oscar 2.0 — Local AI Persona System</span>
+                    <span class="entry-date">2025 – 2026</span>
+                </div>
+                <ul>
+                    <li>Python HTTP server with custom RAG architecture and persona-aware prompting.</li>
+                    <li>Weighted similarity retrieval, Ollama LLM integration, PHP process management via PID files.</li>
+                </ul>
+                <div class="stack-line">Python · PHP · Ollama · ChromaDB</div>
+            </div>
+
+        </div>
+
+        <div class="right-section">
+            <h3>Experience</h3>
+
+            <div class="entry">
+                <div class="entry-header">
+                    <span class="entry-title">Mandaa EUmail — Developer Intern <span class="badge-current">current</span></span>
+                    <span class="entry-date">Mar 2025 – Present</span>
+                </div>
+                <div class="entry-sub">Valencia, Spain</div>
+                <ul>
+                    <li>Practicas at a professional software company building an enterprise transactional email platform.</li>
+                </ul>
+                <div class="stack-line">Symfony · Vue 3 · TypeScript · Go · Docker · PHPUnit</div>
+            </div>
+
+            <div class="entry">
+                <div class="entry-header">
+                    <span class="entry-title">Mediter Real Estate — Administration & Agent</span>
+                    <span class="entry-date">Dec 2021 – Jun 2024</span>
+                </div>
+                <div class="entry-sub">Valencia, Spain</div>
+                <ul>
+                    <li>Managed website and all digital marketing platforms.</li>
+                    <li>Primary contact with construction firms — negotiated prices, projects, and timelines.</li>
+                    <li>Coordinated clients, external agents, and legal professionals across the full sales process.</li>
                 </ul>
             </div>
 
-            <!-- SCANSPAN -->
-            <div class="job">
-                <div class="job-title">ScanSpan — Junior IT Assistant</div>
-                <div class="job-date">Jan 2023 – May 2023</div>
+            <div class="entry">
+                <div class="entry-header">
+                    <span class="entry-title">ScanSpan — Junior IT Assistant</span>
+                    <span class="entry-date">Jan – May 2023</span>
+                </div>
                 <ul>
-                    <li>Worked on basic programming tasks and small software automations.</li>
-                    <li>Updated internal wikis, digital documentation, and knowledge systems.</li>
-                    <li>Maintained and updated websites for internal and external use.</li>
-                    <li>Led digital organization projects, file restructuring, and system cleanup.</li>
-                    <li>Gained practical real-world IT experience supporting the technical team.</li>
+                    <li>Programming tasks, software automations, and internal documentation systems.</li>
+                    <li>Website maintenance and digital organisation projects.</li>
                 </ul>
             </div>
 
-            <!-- SERVICE & OPERATIONS -->
-            <div class="job">
-                <div class="job-title">Service & Operations — Various Centers (Denmark)</div>
-                <div class="job-date">2015 – 2021</div>
+            <div class="entry">
+                <div class="entry-header">
+                    <span class="entry-title">Service & Operations — Various (Denmark)</span>
+                    <span class="entry-date">2015 – 2021</span>
+                </div>
                 <ul>
-                    <li>Ensured safety, access control, water testing, logbook management, and opening/closing routines as a lifeguard.</li>
-                    <li>Provided customer service, handled cash and transactions, managed reservations, and supported daily operations.</li>
-                    <li>Operated activity stations such as shooting ranges and mechanical bull attractions.</li>
-                    <li>Assisted with technical tasks, event setup, repairs, and general logistics.</li>
+                    <li>Lifeguard, customer service, operations, and event support across multiple venues.</li>
                 </ul>
             </div>
 
-        </section>
+        </div>
 
-        <section>
+        <div class="right-section">
             <h3>Personal Interests</h3>
-            <ul>
-                <li>Fitness and strength training</li>
-                <li>Cooking</li>
-                <li>Playing guitar</li>
-                <li>Weekend activities with friends</li>
-            </ul>
-        </section>
+            <p class="interests-line">Fitness & strength training · Cooking · Guitar · Building things</p>
+        </div>
 
-    </section>
+    </main>
 
 </body>
 </html>
